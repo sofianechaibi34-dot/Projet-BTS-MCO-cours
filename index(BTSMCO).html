@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La gestion du BTS MCO, enfin comprise — Tutorat spécialisé</title>
+<meta name="description" content="Tutorat spécialisé en gestion opérationnelle du BTS MCO. FRNG, BFR, CAF, VAN, seuil de rentabilité, amortissement. La méthode pour passer de 7 à 12+.">
+
+<!-- ===================================================================
+     À PERSONNALISER AVANT MISE EN LIGNE (cherche "À-REMPLACER") :
+     1. data-prenom        → ton prénom partout (déjà mis : "Sofiane")
+     2. CALENDLY            → ton lien de réservation (Calendly / Cal.com)
+     3. FORMSPREE_ID        → crée un compte gratuit sur formspree.io,
+                              colle ton ID dans l'attribut action du <form>
+     4. EMAIL / INSTA / TIKTOK → tes liens de contact en bas de page
+     5. Date de l'examen    → variable JS examDate plus bas
+     =================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#f6f1e7;
+    --paper-2:#efe7d6;
+    --ink:#1b2237;
+    --ink-soft:#4a5168;
+    --red:#d6402f;
+    --red-deep:#b22f20;
+    --blue:#2d52d8;
+    --green:#1f7a4d;
+    --grid:rgba(27,34,55,.07);
+    --line-h:30px;
+    --shadow:0 18px 50px -20px rgba(27,34,55,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hanken Grotesk",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* papier quadrillé Seyès-like */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:
+      linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% var(--line-h),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/var(--line-h) 100%;
+    pointer-events:none;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:linear-gradient(90deg,transparent 64px,rgba(214,64,47,.18) 64px,rgba(214,64,47,.18) 66px,transparent 66px);
+    pointer-events:none;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+    background:rgba(246,241,231,.82);
+    border-bottom:1px solid rgba(27,34,55,.1);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{font-family:"Fraunces",serif;font-weight:900;font-size:1.32rem;letter-spacing:-.02em}
+  .logo span{color:var(--red)}
+  .nav-cta{
+    font-weight:700;font-size:.92rem;text-decoration:none;
+    background:var(--ink);color:var(--paper);
+    padding:10px 18px;border-radius:999px;transition:transform .15s,background .2s;
+  }
+  .nav-cta:hover{transform:translateY(-2px);background:var(--red)}
+  @media(max-width:620px){.nav-links{display:none}}
+  .nav-links{display:flex;gap:26px;font-weight:600;font-size:.95rem}
+  .nav-links a{text-decoration:none;opacity:.8}
+  .nav-links a:hover{opacity:1;color:var(--red)}
+
+  /* ---------- HERO ---------- */
+  header{position:relative;padding:78px 0 60px}
+  .eyebrow{
+    display:inline-block;font-weight:700;font-size:.82rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--red);
+    border:1.5px solid var(--red);border-radius:999px;padding:6px 14px;margin-bottom:26px;
+  }
+  h1{
+    font-family:"Fraunces",serif;font-weight:900;letter-spacing:-.025em;
+    font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.02;margin-bottom:22px;
+  }
+  h1 .hl{position:relative;color:var(--ink);white-space:nowrap}
+  h1 .hl::after{
+    content:"";position:absolute;left:-4px;right:-4px;bottom:.08em;height:.34em;
+    background:rgba(214,64,47,.28);z-index:-1;transform:rotate(-1deg);
+  }
+  .sub{font-size:clamp(1.05rem,2.3vw,1.32rem);color:var(--ink-soft);max-width:560px;margin-bottom:34px}
+  .btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    font-weight:700;font-size:1.02rem;text-decoration:none;border-radius:999px;
+    padding:15px 28px;transition:transform .15s,box-shadow .2s;display:inline-flex;gap:8px;align-items:center;
+  }
+  .btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(214,64,47,.7)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 32px -10px rgba(214,64,47,.8)}
+  .btn-ghost{border:1.6px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{transform:translateY(-3px);background:var(--ink);color:var(--paper)}
+
+  /* note dans la marge facon copie corrigee */
+  .grade-note{
+    position:absolute;right:2%;top:96px;font-family:"Caveat",cursive;
+    color:var(--red);transform:rotate(-8deg);text-align:center;line-height:1;
+    pointer-events:none;
+  }
+  .grade-note .big{font-size:clamp(3rem,9vw,6rem);font-weight:700;display:block}
+  .grade-note .small{font-size:1.4rem;display:block;margin-top:4px}
+  .grade-note .arrow{font-size:2rem;display:block}
+  @media(max-width:880px){.grade-note{position:static;transform:rotate(-4deg);margin:38px auto 0;display:block;width:fit-content}}
+
+  /* ---------- bandeau preuves ---------- */
+  .proof{
+    display:flex;flex-wrap:wrap;gap:14px 38px;margin-top:46px;
+    padding-top:26px;border-top:1.5px dashed rgba(27,34,55,.25);
+  }
+  .proof div{display:flex;flex-direction:column}
+  .proof b{font-family:"Fraunces",serif;font-size:1.7rem;font-weight:900;color:var(--ink)}
+  .proof span{font-size:.86rem;color:var(--ink-soft);font-weight:600}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:72px 0;position:relative}
+  .tag{font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  h2{font-family:"Fraunces",serif;font-weight:900;letter-spacing:-.02em;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.06;margin-bottom:18px;max-width:780px}
+  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:680px;margin-bottom:40px}
+
+  /* problème : les chapitres ou on perd des points */
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .chip{
+    background:#fff;border:1.5px solid rgba(27,34,55,.12);border-radius:14px;
+    padding:18px 20px;position:relative;transition:transform .2s,border-color .2s;
+  }
+  .chip:hover{transform:translateY(-4px);border-color:var(--red)}
+  .chip h4{font-family:"Fraunces",serif;font-size:1.12rem;font-weight:600;margin-bottom:4px}
+  .chip p{font-size:.9rem;color:var(--ink-soft)}
+  .chip .x{
+    position:absolute;top:14px;right:16px;font-family:"Caveat",cursive;
+    color:var(--red);font-size:1.6rem;font-weight:700;transform:rotate(-6deg);
+  }
+
+  /* méthode */
+  .method{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.method{grid-template-columns:1fr}}
+  .step{background:#fff;border-radius:18px;padding:30px 26px;box-shadow:var(--shadow);border:1px solid rgba(27,34,55,.06)}
+  .step .num{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:900;color:var(--red);line-height:1}
+  .step h3{font-family:"Fraunces",serif;font-size:1.28rem;font-weight:600;margin:14px 0 8px}
+  .step p{color:var(--ink-soft);font-size:.98rem}
+
+  /* offre / pricing */
+  #offre{background:var(--ink);color:var(--paper);border-radius:34px;margin:0 0 14px}
+  #offre .wrap{padding-top:64px;padding-bottom:64px}
+  #offre .tag{color:#ff9a8c}
+  #offre h2{color:var(--paper)}
+  #offre .lead{color:rgba(246,241,231,.72)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:14px}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+  .card{
+    background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.16);
+    border-radius:20px;padding:30px 26px;display:flex;flex-direction:column;position:relative;
+  }
+  .card.featured{background:var(--paper);color:var(--ink);border-color:var(--red);transform:scale(1.03)}
+  @media(max-width:820px){.card.featured{transform:none}}
+  .card .badge{
+    position:absolute;top:-12px;left:26px;background:var(--red);color:#fff;
+    font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;
+  }
+  .card h3{font-family:"Fraunces",serif;font-size:1.4rem;font-weight:600;margin-bottom:6px}
+  .card .price{font-family:"Fraunces",serif;font-size:2.6rem;font-weight:900;line-height:1;margin:8px 0}
+  .card .price small{font-size:1rem;font-weight:600;opacity:.6}
+  .card .desc{font-size:.92rem;opacity:.78;margin-bottom:18px}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;font-size:.94rem}
+  .card li{padding-left:24px;position:relative}
+  .card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  .card.featured li::before{color:var(--red)}
+  .card .btn{margin-top:auto;justify-content:center;width:100%}
+  .card:not(.featured) .btn-primary{background:var(--red)}
+  .card.featured .btn-primary{background:var(--ink);color:var(--paper);box-shadow:none}
+
+  /* CTA final + form */
+  #contact .box{
+    background:#fff;border-radius:26px;padding:46px;box-shadow:var(--shadow);
+    border:1px solid rgba(27,34,55,.08);max-width:680px;margin:0 auto;
+  }
+  @media(max-width:560px){#contact .box{padding:30px 22px}}
+  #contact h2{text-align:center;margin:0 auto 10px}
+  #contact .lead{text-align:center;margin:0 auto 30px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .field label{font-weight:600;font-size:.9rem}
+  .field input,.field textarea{
+    font-family:inherit;font-size:1rem;padding:13px 15px;border-radius:12px;
+    border:1.5px solid rgba(27,34,55,.18);background:var(--paper);color:var(--ink);
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--red)}
+  .form-btn{width:100%;justify-content:center;border:none;cursor:pointer;font-family:inherit}
+
+  /* countdown */
+  .countdown{
+    display:inline-flex;gap:6px;align-items:baseline;font-weight:700;
+    background:rgba(214,64,47,.12);color:var(--red-deep);
+    padding:8px 16px;border-radius:999px;margin-bottom:26px;font-size:.95rem;
+  }
+  .countdown b{font-family:"Fraunces",serif;font-size:1.15rem}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:.92rem}
+  footer a{color:var(--ink);font-weight:600;text-decoration:none;margin:0 10px}
+  footer a:hover{color:var(--red)}
+  .footer-logo{font-family:"Fraunces",serif;font-weight:900;font-size:1.2rem;color:var(--ink);margin-bottom:8px;display:block}
+
+  /* reveal anim */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo">Cap<span>Gestion</span></div>
+    <div class="nav-links">
+      <a href="#probleme">Le problème</a>
+      <a href="#methode">La méthode</a>
+      <a href="#offre">Tarifs</a>
+    </div>
+    <a class="nav-cta" href="#contact">Réserver mon diagnostic</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="grade-note reveal d4">
+      <span class="big">7</span>
+      <span class="arrow">↓</span>
+      <span class="big" style="color:var(--green)">13</span>
+      <span class="small">en gestion</span>
+    </div>
+
+    <span class="eyebrow reveal">Tutorat spécialisé — BTS MCO</span>
+    <h1 class="reveal d1">La gestion du BTS MCO,<br><span class="hl">enfin comprise.</span></h1>
+    <p class="sub reveal d2">La matière qui fait perdre le plus de points à l'examen. Celle où les corrigés gratuits te donnent le résultat… mais jamais le raisonnement. Moi, je t'apprends à le trouver — et à éviter les pièges qui coûtent cher.</p>
+    <div class="btns reveal d3">
+      <a class="btn btn-primary" href="#contact">Réserver mon diagnostic gratuit →</a>
+      <a class="btn btn-ghost" href="#methode">Voir la méthode</a>
+    </div>
+
+    <div class="proof reveal d4">
+      <div><b>FRNG · BFR</b><span>Trésorerie maîtrisée</span></div>
+      <div><b>VAN · CAF</b><span>Investissement & rentabilité</span></div>
+      <div><b>Seuil · Amort.</b><span>Les calculs qui rapportent</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- LE PROBLÈME -->
+<section id="probleme">
+  <div class="wrap">
+    <div class="tag reveal">Là où tu perds des points</div>
+    <h2 class="reveal d1">Ce ne sont jamais les mêmes chapitres qui posent problème. Sauf qu'en gestion, si.</h2>
+    <p class="lead reveal d2">Tu connais le cours, mais le jour J le calcul ne tombe pas juste. Un taux mensuel mal converti, un taux de marque oublié, une mauvaise formule d'élasticité — et la note s'effondre. Voici les cas qui font le tri.</p>
+    <div class="chips">
+      <div class="chip reveal"><span class="x">−3 pts</span><h4>FRNG / BFR / Trésorerie</h4><p>Le trio qu'on confond et qui se tient.</p></div>
+      <div class="chip reveal d1"><span class="x">−2 pts</span><h4>CAF & autofinancement</h4><p>La méthode additive vs soustractive.</p></div>
+      <div class="chip reveal d2"><span class="x">−4 pts</span><h4>VAN & investissement</h4><p>Actualisation : l'erreur classique.</p></div>
+      <div class="chip reveal d1"><span class="x">−2 pts</span><h4>Seuil de rentabilité</h4><p>Point mort, marge sur coût variable.</p></div>
+      <div class="chip reveal d2"><span class="x">−2 pts</span><h4>Tableaux d'amortissement</h4><p>Linéaire, dégressif, crédit-bail.</p></div>
+      <div class="chip reveal d3"><span class="x">−3 pts</span><h4>Élasticité & calculs commerciaux</h4><p>Remises, ristournes, escompte, taux.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA MÉTHODE -->
+<section id="methode">
+  <div class="wrap">
+    <div class="tag reveal">Ma différence</div>
+    <h2 class="reveal d1">Je ne te donne pas la réponse. Je t'apprends à ne plus en avoir besoin.</h2>
+    <p class="lead reveal d2">Les annales corrigées, tu les trouves gratuitement partout. Le problème, c'est qu'elles affichent un résultat sans t'expliquer le réflexe. Ma méthode part de l'inverse.</p>
+    <div class="method">
+      <div class="step reveal"><div class="num">01</div><h3>Le raisonnement, pas le résultat</h3><p>Sur chaque cas, on décortique la démarche étape par étape jusqu'à ce que le réflexe s'installe. Tu refais, je corrige, tu refais.</p></div>
+      <div class="step reveal d1"><div class="num">02</div><h3>Les pièges, repérés à l'avance</h3><p>Pour chaque type de calcul, je te montre l'erreur que 80 % des candidats commettent — pour que tu sois celui qui ne tombe pas dedans.</p></div>
+      <div class="step reveal d2"><div class="num">03</div><h3>En conditions réelles</h3><p>On s'entraîne sur de vrais sujets, chrono lancé, gestion du temps incluse. Le jour J ne ressemble plus à une surprise.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRE -->
+<section id="offre">
+  <div class="wrap">
+    <div class="tag reveal">Tarifs</div>
+    <h2 class="reveal d1">Simple. Ciblé. Pensé pour la dernière ligne droite.</h2>
+    <p class="lead reveal d2">On commence toujours par un diagnostic gratuit pour repérer les 2-3 chapitres qui te coûtent le plus. Ensuite, à toi de choisir le rythme.</p>
+    <div class="cards">
+      <div class="card reveal">
+        <h3>Diagnostic</h3>
+        <div class="price">Gratuit</div>
+        <p class="desc">20-30 min en visio pour identifier où tu perds des points et te dire franchement si je peux t'aider.</p>
+        <ul>
+          <li>Bilan de ton niveau en gestion</li>
+          <li>Les 3 chapitres prioritaires</li>
+          <li>Un plan d'action clair</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Réserver</a>
+      </div>
+      <div class="card featured reveal d1">
+        <span class="badge">Le plus choisi</span>
+        <h3>Sprint Examen</h3>
+        <div class="price">135€ <small>/ 5 séances</small></div>
+        <p class="desc">Le pack intensif avant le jour J. Toute la méthode gestion, du FRNG à la VAN, sur de vrais sujets.</p>
+        <ul>
+          <li>5 séances d'1h en visio</li>
+          <li>Supports & fiches méthode offerts</li>
+          <li>Suivi entre les séances</li>
+          <li>Soit 27€/h au lieu de 30€</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Je réserve mon sprint</a>
+      </div>
+      <div class="card reveal d2">
+        <h3>Séance ciblée</h3>
+        <div class="price">30€ <small>/ heure</small></div>
+        <p class="desc">Un chapitre, un blocage précis. On le règle en une séance, à l'unité, sans engagement.</p>
+        <ul>
+          <li>1h en visio sur ton besoin</li>
+          <li>Sujet travaillé ensemble</li>
+          <li>Récap & exercices à refaire</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Réserver une séance</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="box reveal">
+      <div style="text-align:center" class="countdown" id="countdown">⏳ Examen dans <b id="cdays">—</b> jours</div>
+      <h2>Réserve ton diagnostic gratuit</h2>
+      <p class="lead">Laisse-moi ton contact, je te recontacte sous 24h pour caler un créneau. Ou réserve directement.</p>
+
+      <!-- À-REMPLACER : crée un form gratuit sur formspree.io et colle ton ID -->
+      <form action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+        <div class="field">
+          <label for="name">Prénom</label>
+          <input id="name" name="prenom" type="text" placeholder="Ton prénom" required>
+        </div>
+        <div class="field">
+          <label for="email">Email ou téléphone</label>
+          <input id="email" name="contact" type="text" placeholder="Pour te recontacter" required>
+        </div>
+        <div class="field">
+          <label for="msg">Où tu galères le plus (optionnel)</label>
+          <textarea id="msg" name="message" rows="3" placeholder="Ex : la VAN et le seuil de rentabilité"></textarea>
+        </div>
+        <button class="btn btn-primary form-btn" type="submit">Envoyer ma demande →</button>
+      </form>
+
+      <p style="text-align:center;margin-top:18px;font-size:.92rem;color:var(--ink-soft)">
+        Tu préfères réserver toi-même ?
+        <!-- À-REMPLACER : ton lien Calendly / Cal.com -->
+        <a href="CALENDLY" style="color:var(--red);font-weight:700">Choisir un créneau →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-logo">Cap<span style="color:var(--red)">Gestion</span></span>
+    <p>Tutorat spécialisé en gestion opérationnelle — BTS MCO · par Sofiane</p>
+    <p style="margin-top:14px">
+      <!-- À-REMPLACER : tes liens -->
+      <a href="mailto:EMAIL">Email</a>
+      <a href="INSTA">Instagram</a>
+      <a href="TIKTOK">TikTok</a>
+    </p>
+    <p style="margin-top:18px;font-size:.8rem;opacity:.6">© <span id="year"></span> CapGestion. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  // ---- reveal au scroll ----
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ---- année footer ----
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // ---- compte à rebours examen (À-REMPLACER : mets la vraie date) ----
+  const examDate=new Date('2026-06-29T08:00:00');
+  const diff=Math.ceil((examDate-new Date())/(1000*60*60*24));
+  const cd=document.getElementById('countdown');
+  if(diff>0){document.getElementById('cdays').textContent=diff;}
+  else{cd.style.display='none';}
+</script>
+</body>
+</html>

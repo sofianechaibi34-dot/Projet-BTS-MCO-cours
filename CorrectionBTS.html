@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corrections-méthode BTS MCO — Toutes les annales de gestion décortiquées</title>
+<meta name="description" content="Les annales de gestion du BTS MCO corrigées avec la méthode : raisonnement, pièges, niveaux de certitude. 1er sujet test gratuit. Pack complet 15€.">
+
+<!-- ===================================================================
+     À PERSONNALISER AVANT MISE EN LIGNE (cherche "À-REMPLACER") :
+     1. GUMROAD_PACK   → lien de ton produit payant (Gumroad ou Payhip), 15€
+     2. GUMROAD_FREE   → lien de ton produit gratuit (0€) = sujet test, capte l'email
+     3. EMAIL / INSTA / TIKTOK → tes liens en bas
+     Astuce : sur Gumroad/Payhip, le paiement, la livraison du PDF et la TVA EU
+     sont gérés automatiquement. Tu n'as rien à coder.
+     =================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#f6f1e7;--paper-2:#efe7d6;--ink:#1b2237;--ink-soft:#4a5168;
+    --red:#d6402f;--red-deep:#b22f20;--blue:#2d52d8;--green:#1f7a4d;
+    --grid:rgba(27,34,55,.07);--line-h:30px;--shadow:0 18px 50px -20px rgba(27,34,55,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Hanken Grotesk",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% var(--line-h),linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/var(--line-h) 100%;pointer-events:none}
+  body::after{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,transparent 64px,rgba(214,64,47,.18) 64px,rgba(214,64,47,.18) 66px,transparent 66px);pointer-events:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(246,241,231,.82);border-bottom:1px solid rgba(27,34,55,.1)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{font-family:"Fraunces",serif;font-weight:900;font-size:1.32rem;letter-spacing:-.02em;text-decoration:none}
+  .logo span{color:var(--red)}
+  .nav-links{display:flex;gap:26px;font-weight:600;font-size:.95rem}
+  .nav-links a{text-decoration:none;opacity:.8}
+  .nav-links a:hover{opacity:1;color:var(--red)}
+  @media(max-width:620px){.nav-links{display:none}}
+  .nav-cta{font-weight:700;font-size:.92rem;text-decoration:none;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;transition:transform .15s,background .2s}
+  .nav-cta:hover{transform:translateY(-2px);background:var(--red)}
+
+  header{position:relative;padding:74px 0 50px}
+  .eyebrow{display:inline-block;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border:1.5px solid var(--red);border-radius:999px;padding:6px 14px;margin-bottom:24px}
+  h1{font-family:"Fraunces",serif;font-weight:900;letter-spacing:-.025em;font-size:clamp(2.4rem,6.5vw,4.3rem);line-height:1.03;margin-bottom:20px;max-width:880px}
+  h1 .hl{position:relative;white-space:nowrap}
+  h1 .hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:.08em;height:.34em;background:rgba(214,64,47,.28);z-index:-1;transform:rotate(-1deg)}
+  .sub{font-size:clamp(1.05rem,2.3vw,1.3rem);color:var(--ink-soft);max-width:600px;margin-bottom:32px}
+  .btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{font-weight:700;font-size:1.02rem;text-decoration:none;border-radius:999px;padding:15px 28px;transition:transform .15s,box-shadow .2s;display:inline-flex;gap:8px;align-items:center;cursor:pointer;border:none;font-family:inherit}
+  .btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(214,64,47,.7)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 32px -10px rgba(214,64,47,.8)}
+  .btn-ghost{border:1.6px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{transform:translateY(-3px);background:var(--ink);color:var(--paper)}
+
+  .stamp{position:absolute;right:3%;top:90px;font-family:"Caveat",cursive;color:var(--green);transform:rotate(7deg);text-align:center;line-height:1;pointer-events:none;border:3px solid var(--green);border-radius:14px;padding:10px 16px}
+  .stamp b{font-size:2.2rem;display:block;font-weight:700}
+  .stamp span{font-size:1.05rem}
+  @media(max-width:900px){.stamp{display:none}}
+
+  section{padding:64px 0;position:relative}
+  .tag{font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  h2{font-family:"Fraunces",serif;font-weight:900;letter-spacing:-.02em;font-size:clamp(1.8rem,4.3vw,2.8rem);line-height:1.08;margin-bottom:18px;max-width:780px}
+  .lead{font-size:1.1rem;color:var(--ink-soft);max-width:680px;margin-bottom:38px}
+
+  /* comparatif gratuit vs methode */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.compare{grid-template-columns:1fr}}
+  .col{border-radius:18px;padding:30px 26px}
+  .col.bad{background:#fff;border:1.5px dashed rgba(27,34,55,.25)}
+  .col.good{background:var(--ink);color:var(--paper);box-shadow:var(--shadow)}
+  .col h3{font-family:"Fraunces",serif;font-size:1.3rem;font-weight:600;margin-bottom:16px}
+  .col.bad h3{color:var(--ink-soft)}
+  .col ul{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:.98rem}
+  .col li{padding-left:28px;position:relative}
+  .col.bad li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:700}
+  .col.good li::before{content:"✓";position:absolute;left:0;color:#7fe0aa;font-weight:700}
+
+  /* ce que contient le pack */
+  .grid-cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  .case{background:#fff;border:1.5px solid rgba(27,34,55,.12);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:transform .2s,border-color .2s}
+  .case:hover{transform:translateY(-3px);border-color:var(--red)}
+  .case b{font-family:"Fraunces",serif;font-weight:600;font-size:1rem}
+  .case span{font-size:.78rem;font-weight:700;color:var(--red);background:rgba(214,64,47,.1);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .topics{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+  .topic{font-size:.88rem;font-weight:600;background:var(--paper-2);border:1px solid rgba(27,34,55,.12);border-radius:999px;padding:7px 14px}
+
+  /* pricing */
+  #acheter{background:var(--ink);color:var(--paper);border-radius:34px;margin-bottom:14px}
+  #acheter .wrap{padding-top:60px;padding-bottom:60px}
+  #acheter .tag{color:#ff9a8c}
+  #acheter h2{color:var(--paper);text-align:center;margin:0 auto 12px}
+  #acheter .lead{color:rgba(246,241,231,.72);text-align:center;margin:0 auto 40px}
+  .price-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:22px;max-width:820px;margin:0 auto}
+  @media(max-width:720px){.price-grid{grid-template-columns:1fr}}
+  .pcard{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.16);border-radius:22px;padding:34px 30px;display:flex;flex-direction:column;position:relative}
+  .pcard.hero{background:var(--paper);color:var(--ink);border-color:var(--red)}
+  .pcard .badge{position:absolute;top:-12px;left:30px;background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .pcard h3{font-family:"Fraunces",serif;font-size:1.45rem;font-weight:600;margin-bottom:6px}
+  .pcard .price{font-family:"Fraunces",serif;font-size:3.2rem;font-weight:900;line-height:1;margin:10px 0}
+  .pcard .price small{font-size:1rem;font-weight:600;opacity:.6}
+  .pcard .desc{font-size:.95rem;opacity:.8;margin-bottom:20px}
+  .pcard ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px;font-size:.95rem}
+  .pcard li{padding-left:24px;position:relative}
+  .pcard li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  .pcard .btn{margin-top:auto;justify-content:center;width:100%}
+  .pcard:not(.hero) .btn-primary{background:var(--red)}
+  .pcard.hero .btn-primary{background:var(--ink);color:var(--paper);box-shadow:none}
+  .guarantee{text-align:center;color:rgba(246,241,231,.6);font-size:.88rem;margin-top:26px}
+
+  /* faq */
+  .faq-item{border-bottom:1.5px solid rgba(27,34,55,.12);padding:20px 0}
+  .faq-item h4{font-family:"Fraunces",serif;font-size:1.15rem;font-weight:600;margin-bottom:8px}
+  .faq-item p{color:var(--ink-soft)}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:.92rem}
+  footer a{color:var(--ink);font-weight:600;text-decoration:none;margin:0 10px}
+  footer a:hover{color:var(--red)}
+  .footer-logo{font-family:"Fraunces",serif;font-weight:900;font-size:1.2rem;color:var(--ink);margin-bottom:8px;display:block}
+  .footer-logo span{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html">Cap<span>Gestion</span></a>
+    <div class="nav-links">
+      <a href="index.html">Tutorat</a>
+      <a href="#contenu">Le contenu</a>
+      <a href="#acheter">Tarifs</a>
+    </div>
+    <a class="nav-cta" href="#acheter">Récupérer le pack</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="stamp"><b>0€</b><span>1er sujet</span></div>
+    <span class="eyebrow">Corrections-méthode · BTS MCO Gestion</span>
+    <h1>Les annales de gestion, <span class="hl">décortiquées</span> — pas juste corrigées.</h1>
+    <p class="sub">Le résultat, tu le trouves gratuitement partout. Ce qu'il te manque, c'est le <b>raisonnement</b>, les <b>pièges</b> et les <b>niveaux de certitude</b> sur chaque réponse. C'est exactement ça que tu as dans ce pack.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#acheter">Voir le pack — 15€ →</a>
+      <!-- À-REMPLACER : produit gratuit Gumroad/Payhip (0€) -->
+      <a class="btn btn-ghost" href="GUMROAD_FREE">Tester 1 sujet gratuitement</a>
+    </div>
+  </div>
+</header>
+
+<!-- POURQUOI C'EST DIFFÉRENT -->
+<section id="difference">
+  <div class="wrap">
+    <div class="tag reveal">Pourquoi payer pour ça&nbsp;?</div>
+    <h2 class="reveal d1">Un corrigé gratuit te donne une note. Une correction-méthode te donne le réflexe.</h2>
+    <p class="lead reveal d2">La différence se voit le jour de l'examen, quand le sujet n'est pas exactement celui que tu as révisé.</p>
+    <div class="compare">
+      <div class="col bad reveal">
+        <h3>Le corrigé gratuit</h3>
+        <ul>
+          <li>« Le résultat est 12 450 € » — sans dire comment</li>
+          <li>Aucune explication des étapes intermédiaires</li>
+          <li>Ne signale jamais les pièges classiques</li>
+          <li>Impossible de savoir si toi tu aurais bon</li>
+          <li>Tu recopies, tu ne comprends pas</li>
+        </ul>
+      </div>
+      <div class="col good reveal d1">
+        <h3>Ma correction-méthode</h3>
+        <ul>
+          <li>Le raisonnement complet, étape par étape</li>
+          <li>Les formules expliquées, pas juste posées</li>
+          <li>Les pièges signalés là où on perd des points</li>
+          <li>Un niveau de certitude sur chaque réponse</li>
+          <li>Un guide « sans réponses » pour t'entraîner d'abord</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENU DU PACK -->
+<section id="contenu">
+  <div class="wrap">
+    <div class="tag reveal">Dans le pack</div>
+    <h2 class="reveal d1">10 cas de gestion, traités à fond.</h2>
+    <p class="lead reveal d2">Chaque sujet vient avec sa correction-méthode détaillée <b>et</b> son guide d'indications « sans réponses » pour t'entraîner en conditions réelles avant de comparer.</p>
+    <div class="grid-cases reveal">
+      <div class="case"><b>Equi'Dam</b><span>2025 · U7</span></div>
+      <div class="case"><b>E.Leclerc</b><span>2023 · U5</span></div>
+      <div class="case"><b>Gamm Vert</b><span>2021 · U5</span></div>
+      <div class="case"><b>Neway</b><span>2024 · U5</span></div>
+      <div class="case"><b>Manon Martin</b><span>2025 · U7</span></div>
+      <div class="case"><b>Mougel Bio</b><span>2023 · U5</span></div>
+      <div class="case"><b>Librairie Banse</b><span>2022 · U5</span></div>
+      <div class="case"><b>Célio</b><span>2022 · U5</span></div>
+      <div class="case"><b>Aux Merveilleux de Fred</b><span>2021 · U5</span></div>
+      <div class="case"><b>Ludiklandes</b><span>2026 · U7</span></div>
+    </div>
+    <div class="topics reveal d1">
+      <span class="topic">FRNG / BFR / Trésorerie</span>
+      <span class="topic">CAF</span>
+      <span class="topic">VAN</span>
+      <span class="topic">Seuil de rentabilité</span>
+      <span class="topic">Amortissement</span>
+      <span class="topic">Crédit-bail</span>
+      <span class="topic">Élasticité-prix</span>
+      <span class="topic">Gestion de stocks</span>
+      <span class="topic">Désaisonnalisation</span>
+      <span class="topic">Escompte & ristournes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACHETER -->
+<section id="acheter">
+  <div class="wrap">
+    <div class="tag reveal">Tarifs</div>
+    <h2 class="reveal d1">Teste, puis prends tout.</h2>
+    <p class="lead reveal d2">Tu commences par un sujet offert pour juger la qualité. Si ça t'aide, le pack complet est à prix fixe, une fois pour toutes.</p>
+    <div class="price-grid">
+      <div class="pcard reveal">
+        <h3>Sujet test</h3>
+        <div class="price">0€</div>
+        <p class="desc">Un cas de gestion entièrement décortiqué, façon correction-méthode. Pour voir la différence de tes propres yeux.</p>
+        <ul>
+          <li>1 correction-méthode complète</li>
+          <li>Son guide d'entraînement</li>
+          <li>Accès immédiat</li>
+        </ul>
+        <!-- À-REMPLACER : produit gratuit Gumroad/Payhip -->
+        <a class="btn btn-primary" href="GUMROAD_FREE">Télécharger gratuitement</a>
+      </div>
+      <div class="pcard hero reveal d1">
+        <span class="badge">Le pack complet</span>
+        <h3>Toutes les annales gestion</h3>
+        <div class="price">15€ <small>une fois</small></div>
+        <p class="desc">Les 10 cas, leurs corrections-méthode et leurs guides d'entraînement. Pas d'abonnement, pas de surprise.</p>
+        <ul>
+          <li>10 corrections-méthode détaillées</li>
+          <li>10 guides « sans réponses »</li>
+          <li>Tous les thèmes de gestion couverts</li>
+          <li>Format PDF, accès à vie</li>
+          <li>Mises à jour incluses</li>
+        </ul>
+        <!-- À-REMPLACER : produit payant 15€ Gumroad/Payhip -->
+        <a class="btn btn-primary" href="GUMROAD_PACK">Récupérer le pack — 15€</a>
+      </div>
+    </div>
+    <p class="guarantee reveal d2">Paiement sécurisé · Téléchargement immédiat · Conçu par un prof qui enseigne la gestion</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="tag reveal">Questions fréquentes</div>
+    <h2 class="reveal d1">Ce qu'on me demande souvent.</h2>
+    <div style="max-width:760px" class="reveal d2">
+      <div class="faq-item"><h4>C'est quoi la différence avec les corrigés gratuits ?</h4><p>Les corrigés gratuits donnent un résultat. Mes corrections expliquent le raisonnement complet, signalent les pièges et indiquent le niveau de certitude de chaque réponse. Tu apprends à refaire seul, pas juste à recopier.</p></div>
+      <div class="faq-item"><h4>Ça couvre quelles épreuves ?</h4><p>La gestion opérationnelle du BTS MCO (cas U5 et U7) : la matière la plus calculatoire, celle qui fait perdre le plus de points.</p></div>
+      <div class="faq-item"><h4>Je reçois quoi exactement ?</h4><p>10 corrections-méthode en PDF + 10 guides d'entraînement « sans réponses », téléchargeables immédiatement après l'achat.</p></div>
+      <div class="faq-item"><h4>Et si j'ai besoin d'aide en plus ?</h4><p>Le pack te débloque sur l'essentiel. Si tu veux qu'on travaille un point ensemble, je propose aussi du <a href="index.html" style="color:var(--red);font-weight:700">tutorat individuel</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-logo">Cap<span>Gestion</span></span>
+    <p>Corrections-méthode & tutorat — BTS MCO Gestion · par Sofiane</p>
+    <p style="margin-top:14px">
+      <a href="index.html">Tutorat</a>
+      <!-- À-REMPLACER -->
+      <a href="mailto:EMAIL">Email</a>
+      <a href="INSTA">Instagram</a>
+      <a href="TIKTOK">TikTok</a>
+    </p>
+    <p style="margin-top:18px;font-size:.8rem;opacity:.6">© <span id="year"></span> CapGestion. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
