@@ -67,18 +67,18 @@
     background:rgba(246,241,231,.82);
     border-bottom:1px solid rgba(27,34,55,.1);
   }
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;gap:30px}
   .logo{font-family:"Fraunces",serif;font-weight:900;font-size:1.32rem;letter-spacing:-.02em}
   .logo span{color:var(--red)}
   .nav-cta{
     font-weight:700;font-size:.92rem;text-decoration:none;
     background:var(--ink);color:var(--paper);
-    padding:10px 18px;border-radius:999px;transition:transform .15s,background .2s;
+    padding:10px 18px;border-radius:999px;transition:transform .15s,background .2s;white-space:nowrap;
   }
   .nav-cta:hover{transform:translateY(-2px);background:var(--red)}
   @media(max-width:620px){.nav-links{display:none}}
-  .nav-links{display:flex;gap:26px;font-weight:600;font-size:.95rem}
-  .nav-links a{text-decoration:none;opacity:.8}
+  .nav-links{display:flex;gap:22px;font-weight:600;font-size:.92rem;align-items:center}
+  .nav-links a{text-decoration:none;opacity:.8;white-space:nowrap}
   .nav-links a:hover{opacity:1;color:var(--red)}
 
   /* ---------- HERO ---------- */
@@ -141,7 +141,7 @@
     padding:18px 20px;position:relative;transition:transform .2s,border-color .2s;
   }
   .chip:hover{transform:translateY(-4px);border-color:var(--red)}
-  .chip h4{font-family:"Fraunces",serif;font-size:1.12rem;font-weight:600;margin-bottom:4px}
+  .chip h4{font-family:"Fraunces",serif;font-size:1.12rem;font-weight:600;margin-bottom:4px;padding-right:72px}
   .chip p{font-size:.9rem;color:var(--ink-soft)}
   .chip .x{
     position:absolute;top:14px;right:16px;font-family:"Caveat",cursive;
@@ -231,9 +231,10 @@
     <div class="nav-links">
       <a href="#probleme">Le problème</a>
       <a href="#methode">La méthode</a>
-      <a href="#offre">Tarifs</a>
+      <a href="#offre">Tutorat</a>
+      <a href="corrections.html">Annales corrigées</a>
     </div>
-    <a class="nav-cta" href="#contact">Réserver mon diagnostic</a>
+    <a class="nav-cta" href="#contact">Réserver</a>
   </div>
 </nav>
 
@@ -251,7 +252,7 @@
     <p class="sub reveal d2">La matière qui fait perdre le plus de points à l'examen. Celle où les corrigés gratuits te donnent le résultat… mais jamais le raisonnement. Moi, je t'apprends à le trouver — et à éviter les pièges qui coûtent cher.</p>
     <div class="btns reveal d3">
       <a class="btn btn-primary" href="#contact">Réserver mon diagnostic gratuit →</a>
-      <a class="btn btn-ghost" href="#methode">Voir la méthode</a>
+      <a class="btn btn-ghost" href="corrections.html">Voir les annales corrigées</a>
     </div>
 
     <div class="proof reveal d4">
