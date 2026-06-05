@@ -82,7 +82,7 @@
   .nav-links a:hover{opacity:1;color:var(--red)}
 
   /* ---------- HERO ---------- */
-  header{position:relative;padding:78px 0 60px}
+  header{position:relative;padding:60px 0 60px}
   .eyebrow{
     display:inline-block;font-weight:700;font-size:.82rem;letter-spacing:.14em;
     text-transform:uppercase;color:var(--red);
@@ -110,14 +110,15 @@
 
   /* note dans la marge facon copie corrigee */
   .grade-note{
-    position:absolute;right:2%;top:96px;font-family:"Caveat",cursive;
-    color:var(--red);transform:rotate(-8deg);text-align:center;line-height:1;
+    display:block;width:fit-content;margin:0 auto 48px;
+    font-family:"Caveat",cursive;
+    color:var(--red);transform:rotate(-4deg);text-align:center;line-height:1;
     pointer-events:none;
   }
-  .grade-note .big{font-size:clamp(3rem,9vw,6rem);font-weight:700;display:block}
-  .grade-note .small{font-size:1.4rem;display:block;margin-top:4px}
-  .grade-note .arrow{font-size:2rem;display:block}
-  @media(max-width:880px){.grade-note{position:static;transform:rotate(-4deg);margin:38px auto 0;display:block;width:fit-content}}
+  .grade-note .big{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:700;display:block}
+  .grade-note .small{font-size:1.3rem;display:block;margin-top:4px}
+  .grade-note .arrow{font-size:1.8rem;display:block}
+  @media(max-width:880px){.grade-note{margin:0 auto 34px}}
 
   /* ---------- bandeau preuves ---------- */
   .proof{
