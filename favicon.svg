@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="3" y="3" width="94" height="94" rx="24" fill="#161c2e"/>
+  <text x="50" y="71" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="56" letter-spacing="-3">
+    <tspan fill="#f6f1e7">C</tspan><tspan fill="#e1502c">G</tspan>
+  </text>
+</svg>
